@@ -23,8 +23,8 @@ import {CountProvider} from './context/count'
         
           <Route exact path="/" component={Signup} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/viewticket" component={ViewTicket} />
-          <Route path="/home" component={Home} />
+          <PrivateRoute exact path="/viewticket" component={ViewTicket} />
+          <PrivateRoute path="/home" component={Home} />
         </div>
       </Router>
       </CountProvider>

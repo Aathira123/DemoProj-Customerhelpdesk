@@ -51,7 +51,7 @@ const viewTicketHandler=()=>{
    {/* <Button className = {classes.buttonclass} onClick={signouthandler}>Sign out</Button>*/}
 <Avatar 
 onClick={()=>setIconClick(!showIconClick)}
-style={{position:'fixed',right:'0px',top:'0px',backgroundColor:'rgb(197,48,100)',cursor:'pointer'}}>{dispname}</Avatar>
+style={{position:'fixed',right:'0px',top:'0px',backgroundColor:'rgb(197,48,100)',cursor:'pointer',textTransform:'capitalize'}}>{dispname}</Avatar>
    
    {showIconClick? 
    <IconClick signout={signouthandler} useremail={currentuser.email}/>
