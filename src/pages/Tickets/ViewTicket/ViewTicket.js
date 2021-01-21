@@ -82,7 +82,7 @@ if(ticketarray.length!==0){
             <TableRow>
               <TableCell style={{fontWeight:'bold',fontSize:'large'}}>S.No</TableCell>
               <TableCell style={{fontWeight:'bold',fontSize:'large'}}>Tickets Raised</TableCell>
-            
+              <TableCell style={{fontWeight:'bold',fontSize:'large'}}>Date when ticket raised</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -93,6 +93,9 @@ if(ticketarray.length!==0){
                 </TableCell>
                 <TableCell component="th" scope="row">
                   {row.Issue}
+                </TableCell>
+                <TableCell component="th" scope="row">
+                  {row.date}
                 </TableCell>
                <Button className={styles.btn} onClick={()=>deleteTicket(row)}>Delete</Button>
               </TableRow>

@@ -18,7 +18,10 @@ import {CountProvider} from './context/count'
         <CountProvider>
       <Router>
         <div className="App">
-          <div className="heading"> <h1> Welcome to Customer Help Desk</h1></div>
+          <div className="heading"> 
+          <h1> Welcome to Customer Help Desk</h1>
+          
+          </div>
          
         
           <Route exact path="/" component={Signup} />

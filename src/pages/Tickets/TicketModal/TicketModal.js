@@ -82,8 +82,8 @@ onHide={props.handleClose}
 
             Name:values.name,
             PhoneNo:values.phoneno,
-
-      ticket:[...userdata.ticket,{ticketNo:count,Issue:values.complaint}]
+           
+      ticket:[...userdata.ticket,{ticketNo:count,Issue:values.complaint, date:new Date().toLocaleDateString("en-US")}]
           })
           .then(function() {
             setSubmitted(true)
