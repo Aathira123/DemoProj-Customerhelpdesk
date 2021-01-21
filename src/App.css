@@ -5,25 +5,4 @@
 
   
 }
-.heading{
-  width:100%;
-  background-color: rgba(85, 94, 95, 0.925);
-  text-align: center;
-}
-.App h1{
- 
-  font-style: italic;
-  width:90%;
-  
- 
-  height:fit-content;
-  display: inline;
- 
- 
-  
-}
-@media (max-width:780px){
-  .App h1{
-    display:block;
-  }
-}
+

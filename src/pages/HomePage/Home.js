@@ -8,6 +8,7 @@ import TicketModal from '../Tickets/TicketModal/TicketModal'
 import IconClick from '../iconClick/iconClick'
 import {CSSTransition} from 'react-transition-group'
 import 'react-slidedown/lib/slidedown.css'
+import Icon from '../../components/Icon/Icon'
 function Admin(props) {
 
 const [currentuser,setCurrent]=useState([])
@@ -48,10 +49,8 @@ const viewTicketHandler=()=>{
   return (
     <div style={{position:'relative'}}>
    
-   {/* <Button className = {classes.buttonclass} onClick={signouthandler}>Sign out</Button>*/}
-<Avatar 
-onClick={()=>setIconClick(!showIconClick)}
-style={{position:'fixed',right:'0px',top:'0px',backgroundColor:'rgb(197,48,100)',cursor:'pointer',textTransform:'capitalize'}}>{dispname}</Avatar>
+
+<Icon dispname={dispname} setIconClick={setIconClick} showIconClick={showIconClick}/>
    
    {showIconClick? 
    <IconClick signout={signouthandler} useremail={currentuser.email}/>

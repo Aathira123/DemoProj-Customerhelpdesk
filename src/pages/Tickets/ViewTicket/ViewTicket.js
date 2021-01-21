@@ -5,23 +5,36 @@ import styles from './ViewTicket.module.css'
 
 import {Button} from 'react-bootstrap'
 import {auth} from "../../../firebase";
-
-
+import Icon from '../../../components/Icon/Icon'
+import IconClick from '../../iconClick/iconClick'
 import {CircularProgress,TableBody,TableCell,TableContainer,TableHead,TableRow,Table,Paper} from '@material-ui/core'
 import {ArrowBackIosRounded} from '@material-ui/icons'
 
 export default function ViewTicket(props) {
 
 const {currentUser}=useAuth()
+const [currentuser,setCurrent]=useState([])
 const [ticketarray,setTicket]=useState([]);
+const [showIconClick,setIconClick]=useState(false);
+const [dispname,setName]=useState('');
 const [load,setLoad]=useState(true);
+
+useEffect(()=>{
+setCurrent(currentUser)
+
+},[currentUser])
+
 var loading=<CircularProgress color="primary" size='12rem' style={{position:'absolute',top:'45%',left:'35%'}}/>
 if(load===false){
     loading=null;
     
 }
 
-
+useEffect(()=>{
+  var avataricon=JSON.parse(localStorage.getItem("currentuser"))
+  setName(avataricon.displayName[0]);
+  
+},[])
 useEffect(() => {
 
 if(currentUser){
@@ -106,10 +119,16 @@ if(ticketarray.length!==0){
 }
 
     return (
-       <div className={styles.view}>
+      <React.Fragment>
+       
 
-             <Button className = {styles.buttonclass} onClick={signouthandler}>Sign out</Button>
-        
+<div style={{position:'relative'}}>
+<Icon dispname={dispname} setIconClick={setIconClick} showIconClick={showIconClick}/>
+{showIconClick? 
+   <IconClick signout={signouthandler} useremail={currentuser.email}/>
+   
+   :null}</div>
+        <div className={styles.view}>
             <h2>Tickets you have Raised</h2>
             {loading}
             <Button className={styles.btn2} onClick={setShowHandler}><ArrowBackIosRounded/> </Button>
@@ -118,7 +137,7 @@ if(ticketarray.length!==0){
           
     </div>
    
-  
+    </React.Fragment>
  
     )
 }

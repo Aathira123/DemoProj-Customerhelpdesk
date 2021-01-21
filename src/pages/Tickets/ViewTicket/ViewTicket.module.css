@@ -1,8 +1,8 @@
 .view{
     color:black;
-
+    position: relative;
 background-color: rgba(85, 94, 95, 0.925);
-width:70%;
+width:90%;
 border-radius: 10px;
 height:auto;
 margin:auto;
@@ -16,7 +16,7 @@ position: relative;
     position: fixed;
     right:0px;
     top:-10px;
-    width:6em;
+    
     height:45px;
     
    box-sizing: border-box;
@@ -48,7 +48,7 @@ position: relative;
     position: fixed;
     left:0px;
     top:-10px;
-    width:6em;
+   
     height:45px;
     
    box-sizing: border-box;

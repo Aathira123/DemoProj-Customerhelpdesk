@@ -9,6 +9,7 @@ import ViewTicket, {} from './pages/Tickets/ViewTicket/ViewTicket'
 import './App.css';
 import PrivateRoute from './privateRoute';
 import {CountProvider} from './context/count'
+import Header from './pages/Header/Header'
  function App(props) {
 
 
@@ -18,16 +19,13 @@ import {CountProvider} from './context/count'
         <CountProvider>
       <Router>
         <div className="App">
-          <div className="heading"> 
-          <h1> Welcome to Customer Help Desk</h1>
-          
-          </div>
+         <Header/>
          
         
           <Route exact path="/" component={Signup} />
           <Route exact path="/login" component={Login} />
-          <PrivateRoute exact path="/viewticket" component={ViewTicket} />
-          <PrivateRoute path="/home" component={Home} />
+          <Route exact path="/viewticket" component={ViewTicket} />
+          <Route path="/home" component={Home} />
         </div>
       </Router>
       </CountProvider>
