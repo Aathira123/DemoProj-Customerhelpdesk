@@ -59,7 +59,7 @@ if(currentUser){
 })
 
 const setShowHandler=()=>{
-    props.history.goBack()
+    props.history.replace('/home')
 
 }
 const signouthandler=()=>{
@@ -76,8 +76,9 @@ const deleteTicket=(tr)=>{
         const ind=doc.data().ticket
        
         firestore.collection('users').doc(currentUser.email).update({
-            
-        ticket:ind.filter((i)=>i.ticketNo!==tr.ticketNo)
+    
+        ticket:ind.filter((i)=>i.ticketId!==tr.ticketId),
+       
         })
     })
 }
@@ -93,17 +94,15 @@ if(ticketarray.length!==0){
         <Table className={styles.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell style={{fontWeight:'bold',fontSize:'large'}}>S.No</TableCell>
+             
               <TableCell style={{fontWeight:'bold',fontSize:'large'}}>Tickets Raised</TableCell>
               <TableCell style={{fontWeight:'bold',fontSize:'large'}}>Date when ticket raised</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {ticketarray.map((row) => (
-              <TableRow key={row.ticketNo}>
-                  <TableCell component="th" scope="row">
-                  {row.ticketNo}
-                </TableCell>
+              <TableRow key={row.ticketId}>
+                  
                 <TableCell component="th" scope="row">
                   {row.Issue}
                 </TableCell>

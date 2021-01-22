@@ -7,11 +7,11 @@
   .header{
    
     font-style: italic;
-    width:50%;
+    width:90%;
     
-   
+   margin: auto;
     height:fit-content;
-    display: inline;
+    display: block;
    
    
     

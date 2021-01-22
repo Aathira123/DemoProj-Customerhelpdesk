@@ -6,3 +6,21 @@
   
 }
 
+.page-enter {
+   
+    transform: scale(0.7) translateX(0%);
+    }
+    .page-enter-active {
+ 
+    transform: scale(1) translateX(0%);
+    transition: all 300ms ease-in-out;
+    }
+    .page-exit {
+  
+    transform: scale(1) translateX(0%);
+    }
+    .page-exit-active {
+  
+    transform: scale(0.9) translateX(50%);
+    transition: all 300ms ease-in-out;
+    }

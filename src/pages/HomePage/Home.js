@@ -1,12 +1,12 @@
 import React,{useEffect,useState} from "react";
-import {Card,CardGroup,Button} from 'react-bootstrap'
+import {Card,CardGroup} from 'react-bootstrap'
 import classes from './Home.module.css'
 import {useAuth} from '../../components/AuthProvider'
 import {auth} from "../../firebase";
-import {Avatar} from '@material-ui/core'
+import {Route} from 'react-router-dom'
 import TicketModal from '../Tickets/TicketModal/TicketModal'
 import IconClick from '../iconClick/iconClick'
-import {CSSTransition} from 'react-transition-group'
+import ViewTicket from '../Tickets/ViewTicket/ViewTicket'
 import 'react-slidedown/lib/slidedown.css'
 import Icon from '../../components/Icon/Icon'
 function Admin(props) {
@@ -35,7 +35,7 @@ setShow(!show)
 
  }
 const viewTicketHandler=()=>{
-  props.history.push('/viewticket')
+  props.history.replace('/home/viewticket')
 }
 
   const signouthandler=()=>{
@@ -48,7 +48,7 @@ const viewTicketHandler=()=>{
   
   return (
     <div style={{position:'relative'}}>
-   
+ 
 
 <Icon dispname={dispname} setIconClick={setIconClick} showIconClick={showIconClick}/>
    

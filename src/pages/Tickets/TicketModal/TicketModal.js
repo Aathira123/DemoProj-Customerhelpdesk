@@ -4,7 +4,7 @@ import classes from './TicketModal.module.css'
 import { Formik, Form, Field } from 'formik';
 import {useAuth} from '../../../components/AuthProvider'
 import {firestore} from "../../../firebase"
-import {useCount} from '../../../context/count'
+
 function validateUsername(value){
   let error;
   if(!value){
@@ -37,11 +37,9 @@ function TicketModal(props){
    
   const [userdata,setUserData]=useState({})
 const [submitted,setSubmitted]=useState(false)
- const {count,increment}=useCount()
+
   const {currentUser}=useAuth()
-  useEffect(()=>{
-return increment()
-  },[])
+
   useEffect(() => {
    firestore.collection('users').doc(currentUser.email).get()
    .then((doc)=>{
@@ -83,7 +81,7 @@ onHide={props.handleClose}
             Name:values.name,
             PhoneNo:values.phoneno,
            
-      ticket:[...userdata.ticket,{ticketNo:count,Issue:values.complaint, date:new Date().toLocaleDateString("en-US")}]
+      ticket:[...userdata.ticket,{ticketId:Math.random(), Issue:values.complaint, date:new Date().toLocaleDateString("en-US")}]
           })
           .then(function() {
             setSubmitted(true)
