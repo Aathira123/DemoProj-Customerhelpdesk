@@ -36,26 +36,28 @@ useEffect(()=>{
   
 },[])
 useEffect(() => {
-
+  let isMounted = true; 
 if(currentUser){
+  
     let ticketarray=[]
     
     firestore.collection('users').doc(currentUser.email).get()
     .then(function(doc) {
-        ticketarray=[...doc.data().ticket]
-     setLoad(false);
      
-       setTicket(ticketarray)
+        ticketarray=[...doc.data().ticket]
+        if(isMounted){
+          setLoad(false);
+        
+          setTicket(ticketarray)
+      
        
-       
-       
-    }).catch(function(error) {
+        }
+       }).catch(function(error) {
         console.log("Error getting document:", error);
     });
 
 }
-  
-    
+return () => { isMounted = false };
 })
 
 const setShowHandler=()=>{
@@ -109,7 +111,8 @@ if(ticketarray.length!==0){
                 <TableCell component="th" scope="row">
                   {row.date}
                 </TableCell>
-               <Button className={styles.btn} onClick={()=>deleteTicket(row)}>Delete</Button>
+                <TableCell component="th" scope="row">
+               <Button className={styles.btn} onClick={()=>deleteTicket(row)}>Delete</Button></TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -12,7 +12,7 @@ import PrivateRoute from './privateRoute';
 import Header from './pages/Header/Header'
  function App({location}) {
 
-console.log(location)
+
   return (
    
       <AuthProvider>
