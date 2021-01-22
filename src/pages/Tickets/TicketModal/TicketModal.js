@@ -36,23 +36,29 @@ function validatePhone(value) {
 function TicketModal(props){
    
   const [userdata,setUserData]=useState({})
-const [submitted,setSubmitted]=useState(false)
+
 
   const {currentUser}=useAuth()
 
   useEffect(() => {
+    let isMounted = true; 
+    if(currentUser){
    firestore.collection('users').doc(currentUser.email).get()
    .then((doc)=>{
      if(doc.exists){
-     
+     if(isMounted){
       setUserData(doc.data())
+     }
+      
       
      }else{
        console.log("no doc")
      }
    }).catch((err)=>console.log(err))
-    
-  }, [userdata])
+  }
+
+return () => { isMounted = false };
+  })
   return(
     <>
         
@@ -69,11 +75,13 @@ onHide={props.handleClose}
      email:'',
      phoneno:'',
      name:'',
+     issuetype:'desktopsoftware',
      complaint:''
 
    }}
    
       onSubmit={values => {
+        console.log(values)
        if(currentUser.email===values.email){
          
           firestore.collection('users').doc(currentUser.email).update({
@@ -81,10 +89,10 @@ onHide={props.handleClose}
             Name:values.name,
             PhoneNo:values.phoneno,
            
-      ticket:[...userdata.ticket,{ticketId:Math.random(), Issue:values.complaint, date:new Date().toLocaleDateString("en-US")}]
+      ticket:[...userdata.ticket,{ticketId:Math.random(), IssueType:values.issuetype, Issue:values.complaint, date:new Date().toLocaleDateString("en-US")}]
           })
           .then(function() {
-            setSubmitted(true)
+           
             props.handleClose()
             
         })
@@ -129,6 +137,19 @@ alert('Email Id provided doesnt match with your currently logged in Email id')
            className={errors.phoneno && touched.phoneno?classes.errorfield:classes.field}
            name="phoneno" validate={validatePhone}  />
            {errors.phoneno && touched.phoneno && <div className={classes.error}>{errors.phoneno}</div>}
+           </Row>
+           <Row>
+           <label className={classes.Label}>Issue Type</label></Row>
+           <Row>
+           <Field as="select"
+          className={classes.field}
+           name="issuetype"  >
+<option value="DesktopSoftware">Desktop Software</option>
+             <option value="PasswordRelated">Password Related</option>
+             <option value="DesktopHardware">Desktop Hardware</option>
+
+           </Field>
+           {touched.issuetype && <div className={classes.error}></div>}
            </Row>
            <Row>
            <label className={classes.Label}>Write your complaint</label></Row>

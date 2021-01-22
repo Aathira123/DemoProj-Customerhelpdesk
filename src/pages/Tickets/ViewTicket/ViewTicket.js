@@ -96,7 +96,7 @@ if(ticketarray.length!==0){
         <Table className={styles.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-             
+            <TableCell style={{fontWeight:'bold',fontSize:'large'}}>Ticket Type</TableCell>
               <TableCell style={{fontWeight:'bold',fontSize:'large'}}>Tickets Raised</TableCell>
               <TableCell style={{fontWeight:'bold',fontSize:'large'}}>Date when ticket raised</TableCell>
             </TableRow>
@@ -104,7 +104,9 @@ if(ticketarray.length!==0){
           <TableBody>
             {ticketarray.map((row) => (
               <TableRow key={row.ticketId}>
-                  
+                   <TableCell component="th" scope="row">
+                  {row.IssueType}
+                </TableCell>
                 <TableCell component="th" scope="row">
                   {row.Issue}
                 </TableCell>
