@@ -31,6 +31,13 @@ function validatePhone(value) {
   }
   return error;
 }
+function validateComplaint(value){
+  let error;
+  if(!value){
+    error='Required';
+  }
+  return error;
+}
 
 
 function TicketModal(props){
@@ -155,11 +162,11 @@ alert('Email Id provided doesnt match with your currently logged in Email id')
            <label className={classes.Label}>Write your complaint</label></Row>
            <Row>
            
-           <Field 
+           <Field validate={validateComplaint}
           as ="textarea" rows="5" cols="5"
-           className={errors.phoneno && touched.phoneno?classes.errorfield:classes.field}
+           className={errors.complaint && touched.complaint?classes.errorfield:classes.field}
            name="complaint"  />
-           {touched.complaint && <div className={classes.error}>{errors.phoneno}</div>}
+           {touched.complaint  && errors.complaint && <div className={classes.error}>{errors.complaint}</div>}
            </Row>
           
            <Button type="submit">Submit</Button>

@@ -1,7 +1,7 @@
 .view{
-    color:black;
+    color:white;
     position: relative;
-background-color: rgba(85, 94, 95, 0.925);
+background-color: #4d4e6d;
 width:90%;
 border-radius: 10px;
 height:auto;
@@ -55,7 +55,7 @@ position: relative;
    cursor: pointer;
 }
 h2,h6{
-    color:black;
+    color:white;
    
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;

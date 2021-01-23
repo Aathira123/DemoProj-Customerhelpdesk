@@ -1,11 +1,11 @@
 .headingdiv{
     width:100%;
-    background-color: rgba(85, 94, 95, 0.925);
+    background-color: #4d4e6d;
     text-align: center;
   
   }
   .header{
-   
+   color:white;
     font-style: italic;
     width:80%;
     
