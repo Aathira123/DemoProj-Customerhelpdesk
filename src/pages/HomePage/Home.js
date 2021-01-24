@@ -86,7 +86,14 @@ const viewTicketHandler=()=>{
        </Card.Text>
     </Card.Body>
   </Card>
-
+  <Card className={classes.card} >
+   <Card.Body className={classes.cardbody}>
+      <Card.Title>Frequently Asked Questions(FAQ)</Card.Title>
+      <Card.Text>
+      Click to read FAQ
+       </Card.Text>
+    </Card.Body>
+  </Card>
   
 </CardGroup>
 <div>
