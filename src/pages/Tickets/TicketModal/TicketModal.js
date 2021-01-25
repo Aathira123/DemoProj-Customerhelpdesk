@@ -65,7 +65,7 @@ function TicketModal(props){
   }
 
 return () => { isMounted = false };
-  })
+  },[currentUser])
   return(
     <>
         
@@ -96,7 +96,7 @@ onHide={props.handleClose}
             Name:values.name,
             PhoneNo:values.phoneno,
            
-      ticket:[...userdata.ticket,{ticketId:Math.random(), IssueType:values.issuetype, Issue:values.complaint, date:new Date().toLocaleDateString("en-US")}]
+      ticket:[...userdata.ticket,{ticketId:Math.random(), IssueType:values.issuetype, Issue:values.complaint,ticketStatus:"Pending", date:new Date().toLocaleDateString("en-US")}]
           })
           .then(function() {
            

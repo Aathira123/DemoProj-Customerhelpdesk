@@ -14,7 +14,7 @@ function Login(props) {
   const [error,setError]=useState('')
 
     const {login}=useAuth()
-    var loading=<CircularProgress color="primary" size='12rem' style={{position:'absolute',top:'40%',left:'40%'}}/>
+    var loading=<CircularProgress color="primary" size='12rem' style={{position:'fixed',top:'50%',left:'50%',marginTop:'50px',marginLeft:'-100px'}}/>
 if(load===false){
     loading=null;
     
@@ -35,9 +35,9 @@ if(load===false){
         .then((user)=>{
           
           setLoad(false)
-          
+          localStorage.setItem("currentuser",JSON.stringify(auth.currentUser))
          
-            localStorage.setItem("currentuser",JSON.stringify(auth.currentUser))
+           
          
           props.history.push('/home')
          

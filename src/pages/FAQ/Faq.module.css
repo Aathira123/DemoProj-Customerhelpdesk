@@ -1,0 +1,33 @@
+.heading{
+   
+    position: relative;
+    top:20px;
+    left:20px;
+    text-decoration: underline;
+}
+.faqdiv{
+position: relative;
+top:20px;
+
+}
+.accordion{
+    position: absolute;
+    width:100%;
+   
+}
+
+.card{
+    background-color: rgba(238, 235, 241, 0.842);
+}
+.btn2{
+    background-color: black;
+    color:white;
+    position: fixed;
+    left:0px;
+    top:-10px;
+   
+    height:45px;
+    
+   box-sizing: border-box;
+   cursor: pointer;
+}

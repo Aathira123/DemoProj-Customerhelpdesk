@@ -8,7 +8,7 @@
 
 .page-enter {
    
-    transform: scale(0.7) 
+    transform: scale(0.8) 
     }
     .page-enter-active {
  
@@ -21,6 +21,6 @@
     }
     .page-exit-active {
   
-    transform: scale(0.7);
+    transform: scale(0.8);
     transition: all 300ms ease-in-out;
     }

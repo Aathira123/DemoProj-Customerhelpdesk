@@ -3,10 +3,10 @@ import {Card,CardGroup} from 'react-bootstrap'
 import classes from './Home.module.css'
 import {useAuth} from '../../components/AuthProvider'
 import {auth} from "../../firebase";
-import {Route} from 'react-router-dom'
+
 import TicketModal from '../Tickets/TicketModal/TicketModal'
 import IconClick from '../iconClick/iconClick'
-import ViewTicket from '../Tickets/ViewTicket/ViewTicket'
+
 import 'react-slidedown/lib/slidedown.css'
 import Icon from '../../components/Icon/Icon'
 function Admin(props) {
@@ -30,10 +30,11 @@ useEffect(()=>{
 
  const raiseTicket=()=>{
 setShow(!show)
+}
 
-
-
- }
+const viewFaqResult=()=>{
+  props.history.replace('/home/FAQ')
+}
 const viewTicketHandler=()=>{
   props.history.replace('/home/viewticket')
 }
@@ -42,12 +43,13 @@ const viewTicketHandler=()=>{
     auth.signOut()
     .then(()=>{
       setCurrent('')
+      localStorage.removeItem('currentuser')
       props.history.replace("/login")
     })
   }
   
   return (
-    <div style={{position:'relative'}}>
+    <React.Fragment>
  
 
 <Icon dispname={dispname} setIconClick={setIconClick} showIconClick={showIconClick}/>
@@ -56,6 +58,7 @@ const viewTicketHandler=()=>{
    <IconClick signout={signouthandler} useremail={currentuser.email}/>
    
    :null}
+   
   <CardGroup className={classes.cardgroup}>
   <Card className={classes.card} >
    
@@ -68,16 +71,7 @@ const viewTicketHandler=()=>{
   </Card>
 
 
-  <Card className={classes.card}>
-    <Card.Body className={classes.cardbody}>
-      <Card.Title>Check Ticket Status</Card.Title>
-      <Card.Text>
-       Click to view your ticket status
-      </Card.Text>
-    </Card.Body>
-  </Card>
-
-
+ 
   <Card className={classes.card} onClick={viewTicketHandler}>
    <Card.Body className={classes.cardbody}>
       <Card.Title>View All Tickets</Card.Title>
@@ -86,7 +80,7 @@ const viewTicketHandler=()=>{
        </Card.Text>
     </Card.Body>
   </Card>
-  <Card className={classes.card} >
+  <Card className={classes.card} onClick={viewFaqResult} >
    <Card.Body className={classes.cardbody}>
       <Card.Title>Frequently Asked Questions(FAQ)</Card.Title>
       <Card.Text>
@@ -100,7 +94,7 @@ const viewTicketHandler=()=>{
 {show && <TicketModal handleClose={handleClose} handleShow={handleShow} show={show} setShow={setShow} />}
 
 </div>
-</div>
+</React.Fragment>
   )
 }
 

@@ -24,7 +24,7 @@ setCurrent(currentUser)
 
 },[currentUser])
 
-var loading=<CircularProgress color="primary" size='12rem' style={{position:'absolute',top:'45%',left:'35%'}}/>
+var loading=<CircularProgress color="primary" size='12rem' style={{position:'fixed',top:'50%',left:'50%',marginTop:'50px',marginLeft:'-100px'}}/>
 if(load===false){
     loading=null;
     
@@ -99,6 +99,7 @@ if(ticketarray.length!==0){
             <TableCell style={{fontWeight:'bold',fontSize:'large'}}>Ticket Type</TableCell>
               <TableCell style={{fontWeight:'bold',fontSize:'large'}}>Tickets Raised</TableCell>
               <TableCell style={{fontWeight:'bold',fontSize:'large'}}>Date when ticket raised</TableCell>
+              <TableCell style={{fontWeight:'bold',fontSize:'large'}}>Ticket Status</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -114,6 +115,10 @@ if(ticketarray.length!==0){
                   {row.date}
                 </TableCell>
                 <TableCell component="th" scope="row">
+                  {row.ticketStatus==='Pending'?<h5 style={{color:'red'}}>{row.ticketStatus}</h5> :<h5 style={{color:'green'}}>{row.ticketStatus}</h5> }
+                 
+                </TableCell>
+                <TableCell component="th" scope="row">
                <Button className={styles.btn} onClick={()=>deleteTicket(row)}>Delete</Button></TableCell>
               </TableRow>
             ))}
@@ -126,12 +131,12 @@ if(ticketarray.length!==0){
       <React.Fragment>
        
 
-<div style={{position:'relative'}}>
+
 <Icon dispname={dispname} setIconClick={setIconClick} showIconClick={showIconClick}/>
 {showIconClick? 
    <IconClick signout={signouthandler} useremail={currentuser.email}/>
    
-   :null}</div>
+   :null}
         <div className={styles.view}>
             <h2>Tickets you have Raised</h2>
             {loading}
