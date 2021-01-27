@@ -1,7 +1,7 @@
 .view{
     color:white;
     position: relative;
-background-color: #4d4e6d;
+background-color: #6F2232;
 width:90%;
 display: flex;
 flex-direction: column;
@@ -24,11 +24,10 @@ margin-top:35px;
    box-sizing: border-box;
    cursor: pointer;
 }
-.buttonclass:hover,.btn2:hover{
-    background-color: blue;
-}
+
 .table {
-    min-width: 650,
+    min-width: 650;
+
   }
 .wrapper{
     display:flex;
@@ -51,10 +50,14 @@ margin-top:35px;
     left:0px;
     top:-10px;
    
-    height:45px;
-    
+    height:56px;
+    width:50px;
    box-sizing: border-box;
    cursor: pointer;
+}
+
+.btn2:hover{
+    color:#6F2232;
 }
 h2,h6{
     color:white;

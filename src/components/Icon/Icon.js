@@ -1,12 +1,15 @@
 import React from 'react'
 import {Avatar} from '@material-ui/core'
+import classes from './Icon.module.css';
 function Icon(props) {
     return (
-        <React.Fragment>
+        <div className={classes.avatardiv}>
+
             <Avatar 
 onClick={()=>props.setIconClick(!props.showIconClick)}
-style={{position:'absolute',right:'0.5%',top:'0px',backgroundColor:'black',cursor:'pointer',textTransform:'capitalize'}}>{props.dispname}</Avatar>
-       </React.Fragment>
+className={classes.avatar}
+>{props.dispname}</Avatar>
+       </div>
     )
 }
 

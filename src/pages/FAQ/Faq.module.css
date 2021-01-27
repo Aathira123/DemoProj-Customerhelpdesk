@@ -4,20 +4,30 @@
     top:20px;
     left:20px;
     text-decoration: underline;
+    font-weight: bolder;
+    font-size: 45px;
 }
 .faqdiv{
 position: relative;
-top:20px;
+top:30px;
 
 }
 .accordion{
     position: absolute;
     width:100%;
+    
    
 }
+.linkx{
+    color:rgb(13, 15, 2) ;
+}
 
+.linkx:visited{
+    color:teal;
+}
 .card{
-    background-color: rgba(238, 235, 241, 0.842);
+    background-color: #f7f2f3f3;
+
 }
 .btn2{
     background-color: black;
@@ -26,7 +36,8 @@ top:20px;
     left:0px;
     top:-10px;
    
-    height:45px;
+    height:56px;
+    width:50px;
     
    box-sizing: border-box;
    cursor: pointer;

@@ -47,7 +47,7 @@ function Faq(props) {
          <Accordion className={classes.accordion}>
   <Card className={classes.card}>
     <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="0">
+      <Accordion.Toggle as={Button} variant="link" eventKey="0" className={classes.linkx}>
        I forgot my Customer help desk password. How to recover ?
       </Accordion.Toggle>
     </Card.Header>
@@ -58,7 +58,7 @@ function Faq(props) {
   </Card>
   <Card className={classes.card}>
     <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="1">
+      <Accordion.Toggle as={Button} variant="link" eventKey="1" className={classes.linkx}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ante lectus?
       </Accordion.Toggle>
     </Card.Header>
@@ -69,7 +69,7 @@ function Faq(props) {
   </Card>
   <Card className={classes.card}>
     <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="2">
+      <Accordion.Toggle as={Button} variant="link" eventKey="2" className={classes.linkx}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ante lectus?
       </Accordion.Toggle>
     </Card.Header>
@@ -79,7 +79,7 @@ function Faq(props) {
   </Card>
   <Card className={classes.card}>
     <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="3">
+      <Accordion.Toggle as={Button} variant="link" eventKey="3" className={classes.linkx}>
       Proin accumsan dolor pellentesque tortor mollis, consectetur ultricies neque ullamcorper. Aliquam sed odio sed ex sodales ullamcorper?
       </Accordion.Toggle>
     </Card.Header>
@@ -89,7 +89,7 @@ function Faq(props) {
   </Card>
   <Card className={classes.card}>
     <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="4">
+      <Accordion.Toggle as={Button} variant="link" eventKey="4" className={classes.linkx}>
       accumsan eget quis leo. Morbi et porta nunc, eu iaculis nunc. Vestibulum eleifend lectus in velit?
       </Accordion.Toggle>
     </Card.Header>
